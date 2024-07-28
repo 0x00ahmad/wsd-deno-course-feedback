@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback Page</title>
+</head>
+
+<body>
+    <h1>How would you rate this experience?</h1>
+    <form method="POST" action="/feedbacks/1">
+        <button name="Poor" type="submit">Poor</button>
+    </form>
+    <form method="POST" action="/feedbacks/2">
+        <button name="Fair" type="submit">Fair</button>
+    </form>
+    <form method="POST" action="/feedbacks/3">
+        <button name="Good" type="submit">Good</button>
+    </form>
+    <form method="POST" action="/feedbacks/4">
+        <button name="Very good" type="submit">Very good</button>
+    </form>
+    <form method="POST" action="/feedbacks/5">
+        <button name="Excellent" type="submit">Excellent</button>
+    </form>
+</body>
+
+</html>
