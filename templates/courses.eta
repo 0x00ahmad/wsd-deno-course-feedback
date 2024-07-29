@@ -7,23 +7,26 @@
 
 <body>
     <h1>Courses</h1>
-    <form method="POST" action="/courses">
-        <label for="name">Course name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        <% it.courses.forEach(course=> { %>
-            <li>
-                <a href="/courses/<%= course.id %>">
-                    <%= course.name %>
-                </a>
-                <form method="POST" action="/courses/<%= course.id %>/delete" style="display:inline;">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-            <% }); %>
-    </ul>
+
+    <%~ include("/partials/validation-errors.eta", { field: "Name" , errors: it?.errors?.name?._errors }) %>
+
+        <form method="POST" action="/courses">
+            <label for="name">Course name:</label>
+            <input type="text" id="name" name="name" value="<%= it.prevData.name %>" required />
+            <button type="submit">Add</button>
+        </form>
+        <ul>
+            <% it.courses.forEach(course=> { %>
+                <li>
+                    <a href="/courses/<%= course.id %>">
+                        <%= course.name %>
+                    </a>
+                    <form method="POST" action="/courses/<%= course.id %>/delete" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+                <% }); %>
+        </ul>
 </body>
 
 </html>
