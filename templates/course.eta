@@ -12,40 +12,47 @@
     <p>
         Course ID: <%= it.course.id %>
     </p>
-    <ul>
-        <li>
-            Poor: <%= it.course.feedbacks[1] %>
-                <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/1" style="display:inline;">
-                    <button type="submit">Poor</button>
-                </form>
-        </li>
 
-        <li>
-            Fair: <%= it.course.feedbacks[2] %>
-                <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/2" style="display:inline;">
-                    <button type="submit">Fair</button>
-                </form>
-        </li>
-        <li>
-            Good: <%= it.course.feedbacks[3] %>
-                <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/3" style="display:inline;">
-                    <button type="submit">Good</button>
-                </form>
-        </li>
-        <li>
-            Very good: <%= it.course.feedbacks[4] %>
-                <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/4" style="display:inline;">
-                    <button type="submit">Very good</button>
-                </form>
-        </li>
-        <li>
-            Excellent: <%= it.course.feedbacks[5] %>
-                <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/5" style="display:inline;">
-                    <button type="submit">Excellent</button>
-                </form>
-        </li>
-    </ul>
-    <a href="/courses">Back to Courses</a>
+
+    <% if (!!it.alreadyGaveFeedbackForThisCourse) { %>
+        <p>You have already given feedback for this course. Thank you!</p>
+        <% } else { %>
+            <ul>
+                <li>
+                    Poor: <%= it.course.feedbacks[1] %>
+                        <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/1" style="display:inline;">
+                            <button type="submit">Poor</button>
+                        </form>
+                </li>
+
+                <li>
+                    Fair: <%= it.course.feedbacks[2] %>
+                        <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/2" style="display:inline;">
+                            <button type="submit">Fair</button>
+                        </form>
+                </li>
+                <li>
+                    Good: <%= it.course.feedbacks[3] %>
+                        <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/3" style="display:inline;">
+                            <button type="submit">Good</button>
+                        </form>
+                </li>
+                <li>
+                    Very good: <%= it.course.feedbacks[4] %>
+                        <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/4" style="display:inline;">
+                            <button type="submit">Very good</button>
+                        </form>
+                </li>
+                <li>
+                    Excellent: <%= it.course.feedbacks[5] %>
+                        <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/5" style="display:inline;">
+                            <button type="submit">Excellent</button>
+                        </form>
+                </li>
+            </ul>
+            <% } %>
+
+                <a href="/courses">Back to Courses</a>
 </body>
 
 </html>

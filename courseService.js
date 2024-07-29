@@ -66,3 +66,13 @@ export async function addCourseFeedback(cid, fid) {
   await kv.set([basePrefix, course.id], course);
   console.log(`Added feedback ${fid} to course ${cid}`);
 }
+
+export async function setFeedbackGivenToTrueForUserForCourse(sid, cid) {
+  await kv.set([basePrefix, cid, sid], true);
+}
+
+export async function hasUserAlreadyGivenFeedbackForCourse(sid, cid) {
+  console.log(sid, cid);
+  const res = await kv.get([basePrefix, cid, sid]);
+  return !!res && !!res.value;
+}
